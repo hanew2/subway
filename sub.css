@@ -1,0 +1,194 @@
+@charset "UTF-8";
+#container {background: #f2f2f2;}     
+
+.sub_header {
+  position: absolute; 
+  z-index: 20;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
+}
+.sub_header_in {width: 1170px; margin: auto; text-align: center;}
+.sub_header ul {display: inline-block;}
+.sub_header li {float: left; margin-left: 20px;}
+.sub_header a {display: inline-block; line-height: 50px; color: #fff;}
+
+.sub_header li + li::before {
+  display: inline-block; 
+  content: ''; 
+  width: 4px; 
+  height: 4px; 
+  background: rgba(255, 255, 255, .7); 
+  border-radius: 50%; 
+  margin-right: 20px;
+  position: relative;
+  top: -4px;
+}
+
+/************ sub_visual **************/
+.sub_visual {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    text-align: center;
+    color: #fff;
+}
+.sub_visual h2 {
+  background: none; 
+  font-size: 66px; 
+  padding-top: 130px;
+  line-height: 1;
+  opacity: 0; 
+  animation: toUp .6s ease-out forwards;
+}
+.sub_visual p {
+  padding-top: 20px; 
+  line-height: 26px;
+  opacity: 0;
+  animation: toUp .8s ease-out forwards;
+
+}
+
+.morning {
+  background: #F2B701 url(img/bg_visual_morning.png) 50%;} 
+  /* 여기서 50%은 화면 줄여도 백그라운드 이미지가 항상 한가운데 있게 */
+.morning .img1 {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: 360px;
+  width: 508px; 
+  height: 549px; 
+  background: url(img/img_visual_morning01.jpg);
+  animation: toDown 1s ease-out;
+}
+.morning .img2 {
+  position: absolute;
+  left: 50%;
+  top:0;
+  margin-left: -710px;
+  width: 327px; 
+  height: 215px; 
+  background: url(img/img_visual_morning02.jpg);
+  animation: toLeft .5s ease-out;
+}
+
+@keyframes toUp {
+  0% {transform: translateY(200px); opacity: 0;}
+  100% {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes toDown {
+  0% {transform: translateY(-500px); opacity: 0;}
+  100% {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes toLeft {
+  0% {transform: translateX(100px); opacity: 0;}
+  100% {transform: translateX(0); opacity: 1;}
+}
+
+.sub_header li.active a::after {
+  display: block; 
+  content: ''; 
+  width: 100%; 
+  height: 4px; 
+  background: var(--green);
+  position: relative;
+  bottom: 4px;
+}
+
+
+/***************** sub_header *****************/
+.product {width: 1170px; margin: auto; padding-bottom: 150px;}
+.pd_tab {position: relative; top: -40px; height: 80px; background: #fff; text-align: center; box-shadow: 0 8px 12px -8px rgba(0,0,0,0.15);}  
+/*위로 올리려면 top:-40px. 헤이트 반 만큼 마이너스*/
+
+.pd_tab ul {display: inline-block;}
+.pd_tab li {float: left; margin-left: 20px;}
+.pd_tab a {display: inline-block; line-height: 80px; font-weight: 500; color: var(--gray2);}
+
+.pd_tab li + li::before {display: inline-block; content: ''; width: 1px; height: 15px; background: #bbb; margin-right: 20px; position: relative; top: 2px;}
+/* 첫번째거 뺀 나머지 li에 적용한다는 뜻. 바로 뒤의 li들? 막대기 맨 앞에는 적용 안하기 위해.*/
+
+.pd_list {}
+.pd_list ul {margin: -30px 0 0 -30px;}
+.pd_list li {
+  position: relative;
+  background: #ffffff; 
+  float: left;
+  width: 370px;
+  height: 330px;
+  margin: 30px 0 0 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pd_list figure {width: 270px; margin: 20px auto 0;}
+.pd_list figure img {width: 100%;}
+
+.pd_list .tit {
+  position: relative;
+  display: block; 
+  font-size: 22px; 
+  font-weight: 700; 
+  margin-bottom: 10px;
+  z-index: 5;
+  top: 0;
+}
+.pd_list .eng {
+  position: relative;
+  font-family: 'Momo Trust Display', sans-serif; 
+  color: var(--gray1);
+  z-index: 5;
+  top: 0;
+}
+.pd_list .summary {
+  position: absolute;
+  font-size: 15px;
+  top: 200px;
+  z-index: 5;
+  width: 370px;
+  line-height: 1.4;
+  opacity: 0;
+}
+
+.pd_list .viewBtn {
+  position: absolute; 
+  content: ''; 
+  width: 100%; 
+  height: 100%; 
+  top: 0; 
+  left: 0;
+  z-index: 5;
+  background: url(img/btn_more.png) no-repeat 145px bottom;
+  transform: scale(0);
+  opacity: 0;
+} 
+
+
+/* 마우스를 올려놨을 때 */
+.pd_list li:hover::after {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  content: ''; 
+  width: 100%; 
+  height: 100%;
+  background: var(--green);
+}
+
+.pd_list li:hover .tit {color: #fff; top: -150px; transition: .4s;}
+.pd_list li:hover .eng {color: #fff; top: -143px; transition: .4s;}
+.pd_list li:hover .summary {
+  color: #C5E698; 
+  top: 130px; 
+  opacity: 1; 
+  transition: .4s .2s;
+}
+.pd_list li:hover .viewBtn {
+  transform: scale(1);
+  transition: .4s .3s;
+  opacity: 1;
+}
