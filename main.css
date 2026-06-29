@@ -163,8 +163,12 @@ header {
       .menuWrap li {position: relative; flex: 1; text-align: center;}
       .menuWrap li img {width: 100%;}
       .menuWrap li strong {display: block; margin: 5px 0 16px; font-size: 18px; }
-      .menuWrap li p {font-size: 13px; color: var(--gray1); line-height: 20px; letter-spacing: -1.2px;
-}
+      .menuWrap li p {
+        font-size: 13px; 
+        color: var(--gray1); 
+        line-height: 20px; 
+        letter-spacing: -1.2px;
+      }
 
       .menuWrap li::after {
         position: absolute; 
